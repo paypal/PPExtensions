@@ -13,7 +13,7 @@ LICENSE = 'BSD License'
 here = os.path.abspath(os.path.dirname(__file__))
 README = open(os.path.join(here, 'README.md'), encoding='utf-8').read()
 
-VERSION = '0.0.3'
+VERSION = '0.0.4'
 
 install_requires = [
     'ipython>=1.0',
