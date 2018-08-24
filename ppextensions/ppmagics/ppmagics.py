@@ -822,7 +822,7 @@ class PPMagics(Magics, Configurable):
 
             return VerticalBox(vertical_widgets, result_df), result_df
 
-        if isinstance(results, list):
+        if type(results) is list:
             tabs = []
             data = []
             for this_result in results:
