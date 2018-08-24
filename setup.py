@@ -13,7 +13,7 @@ LICENSE = 'BSD License'
 here = os.path.abspath(os.path.dirname(__file__))
 README = open(os.path.join(here, 'README.md'), encoding='utf-8').read()
 
-VERSION = '0.0.1'
+VERSION = '0.0.3'
 
 install_requires = [
     'ipython>=1.0',
@@ -28,7 +28,11 @@ install_requires = [
     'tableausdk',
     'prettytable',
     'ipython-sql==0.3.8',
-    'requests'
+    'requests',
+    'astor',
+    'pandas==0.22.0',
+    'autovizwidget',
+    'thrift-sasl==0.2.1'
 ]
 
 setup(name=NAME,
