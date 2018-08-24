@@ -10,6 +10,10 @@ PPExtensions is a suite of ipython and jupyter extensions built to improve user 
 * **Notebooks Scheduling ** - A jupyter extension to productionalize the notebooks development environment. This extension enables scheduling notebooks with help of [airflow](https://airflow.apache.org/).
 * **Config UI ** - A simple UI built to change the configurations of different extensions like PPMagic, [sparkmagic](https://github.com/jupyter-incubator/sparkmagic) ..etc.
 
+# Prerequisites
+
+Install  [tableau sdk](https://onlinehelp.tableau.com/current/api/sdk/en-us/help.htm#SDK/tableau_sdk_installing.htm%3FTocPath%3D_____3)
+
 
 # Installation
 
@@ -29,10 +33,10 @@ PPExtensions is a suite of ipython and jupyter extensions built to improve user 
 
 # Documentation & Getting Started
 
-    * [Click here to read the docs](http://ppextensions.readthedocs.io/)
+* [Click here to read the docs](http://ppextensions.readthedocs.io/)
 
 # Questions
 
-    * [Slack](https://ppextensions.slack.com)
-    * [User Forum](https://groups.google.com/d/forum/ppextensions)
-    * [Developer Forum](https://groups.google.com/d/forum/ppextensions)
+* [Slack](https://ppextensions.slack.com)
+* [User Forum](https://groups.google.com/d/forum/ppextensions)
+* [Developer Forum](https://groups.google.com/d/forum/ppextensions)

@@ -29,10 +29,10 @@ PPExtensions is a suite of ipython and jupyter extensions built to improve user 
 
 # Documentation & Getting Started
 
-    * [Click here to read the docs](http://ppextensions.readthedocs.io/)
+* [Click here to read the docs](http://ppextensions.readthedocs.io/)
 
 # Questions
 
-    * [Slack](https://ppextensions.slack.com)
-    * [User Forum](https://groups.google.com/d/forum/ppextensions)
-    * [Developer Forum](https://groups.google.com/d/forum/ppextensions)
+* [Slack](https://ppextensions.slack.com)
+* [User Forum](https://groups.google.com/d/forum/ppextensions)
+* [Developer Forum](https://groups.google.com/d/forum/ppextensions)
