@@ -25,7 +25,6 @@ install_requires = [
     'sqlparse',
     'pyhive==0.2.1',
     'pysftp==0.2.9',
-    'tableausdk',
     'prettytable',
     'ipython-sql==0.3.8',
     'requests',

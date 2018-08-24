@@ -1,5 +1,9 @@
 # Publish Magic </a>
 
+# Prerequisites
+
+Install  [tableau sdk](https://onlinehelp.tableau.com/current/api/sdk/en-us/help.htm#SDK/tableau_sdk_installing.htm%3FTocPath%3D_____3)
+
 # About
 Jupyter enables you to publish your data to online tableau server. 
 Publish magic allows you to publish the dataframe or result from any query to  online tableau server.

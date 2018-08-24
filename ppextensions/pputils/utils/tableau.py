@@ -37,10 +37,17 @@ import pandas as pd
 from IPython.core.display import display, HTML
 from paramiko.ssh_exception import SSHException
 from pysftp.exceptions import ConnectionException
-from tableausdk import *
-from tableausdk.Extract import *
+
+try:
+    from tableausdk import *
+    from tableausdk.Extract import *
+    TABLEAU_SDK_NOT_FOUND = False
+except ImportError:
+    TABLEAU_SDK_NOT_FOUND = True
+
 
 from ppextensions.pputils.utils.configuration import conf_info
+from ppextensions.pputils.widgets.messages import UserMessages
 from .resultset import ResultSet
 
 
@@ -48,6 +55,7 @@ def tableau_extract(resultset, data_file):
     """
     Create TDE extract.
     """
+
     if isinstance(resultset, ResultSet):
         df_name = resultset.DataFrame()
     else:
@@ -133,6 +141,7 @@ def publish(data, data_file=None, project_name=None):
     """
     Publish to Tableau.
     """
+
     overwrite = False
     if not data_file:
         data_file = ("data-%s.tde" % (str(datetime.datetime.now().strftime('%Y-%m-%d-%H-%M-%S')))).strip()
@@ -143,15 +152,6 @@ def publish(data, data_file=None, project_name=None):
 
     tableau_details = conf_info('tableau')
 
-    if tableau_details:
-        site_name = tableau_details['site_name']
-        username = tableau_details['user_name']
-        password = tableau_details['password']
-    else:
-        site_name = input("Enter the site name to publish ")
-        username = input("Enter tableau user name ")
-        password = getpass.getpass("Please enter your password ")
-
     try:
         if project_name:
             project_name = project_name.strip('\'"')
@@ -159,7 +159,23 @@ def publish(data, data_file=None, project_name=None):
         else:
             project_name = 'default'
 
-        tableau_extract(data, data_file)
+        log = UserMessages()
+
+        if TABLEAU_SDK_NOT_FOUND:
+            log.error("Tableau SDK not found. Please install it before using Tableau functionality.")
+            return
+        else:
+            tableau_extract(data, data_file)
+
+        if tableau_details:
+            site_name = tableau_details['site_name']
+            username = tableau_details['user_name']
+            password = tableau_details['password']
+        else:
+            site_name = input("Enter the site name to publish ")
+            username = input("Enter tableau user name ")
+            password = getpass.getpass("Please enter your password ")
+
         data_file_name = str(data_file).rsplit('.tde', 1)[0]
 
         subprocess.run(["tabcmd", "--accepteula"], stdout=subprocess.PIPE,
