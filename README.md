@@ -1,5 +1,6 @@
 [![Build Status](https://travis-ci.org/paypal/PPExtensions.svg?branch=master)](https://travis-ci.org/paypal/PPExtensions)
 [![Documentation Status](https://readthedocs.org/projects/ppextensions/badge/?version=latest)](http://ppextensions.readthedocs.io/en/latest/?badge=latest)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/a3452d2e00d2458bb79c6ba5f36b5b7a)](https://www.codacy.com/project/Dee-Pac/PPExtensions/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=paypal/PPExtensions&amp;utm_campaign=Badge_Grade_Dashboard)
 [![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
 
 # PPExtensions
