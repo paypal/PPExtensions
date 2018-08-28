@@ -12,7 +12,7 @@ PPExtensions is a suite of ipython and jupyter extensions built to improve user 
 
 - **PPMagics** - Set of magics to simplify access to different storage systems and tableau.
 - **Github Integration** - A jupyter extension to integrate notebooks with github. This extension simplifies version controlling, sharing and resolving merge conflicts of notebooks.
-- **Notebooks Scheduling** - A jupyter extension to productionalize the notebooks development environment. This extension enables scheduling notebooks with help of [airflow](https://airflow.apache.org/).
+- **Notebooks Scheduling** - A jupyter extension to productionalize the notebooks development environment. This extension enables scheduling notebooks with help of [Apache Airflow](https://airflow.apache.org/).
 - **Config UI** - A simple UI built to change the configurations of different extensions like PPMagic, [sparkmagic](https://github.com/jupyter-incubator/sparkmagic) ..etc.
 
 
