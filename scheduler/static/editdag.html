@@ -1,0 +1,147 @@
+<a><strong>Configuration for job: {{ configuration[0] }}</strong></a>
+<hr>
+<form>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="freq" style="margin-left:12px">Interval</label>
+      <select id="freq" class="form-control">
+      </select>
+    </div>
+    <div class="form-group col-md-6">
+      <label for="unit" style="margin-left:12px">Unit</label>
+       <select id="unit" class="form-control">
+        <option value='hours'>hours</option>
+        <option value='days'>days</option>
+        <option value='weeks'>weeks</option>
+      </select>
+    </div>
+    <div class="form-group col-md-6">
+        <label for="start_at" style="margin-left:12px">Start at</label>
+        <input id="start_at" type="time" class="form-control" style="margin-left:12px">
+    </div>
+
+    <div class="form-group col-md-6">
+        <label for="start_on" style="margin-left:12px">Start on</label>
+        <input id="start_on" type="date" class="form-control" style="margin-left:12px">
+    </div>
+    <div class="form-group col-md-12">
+        <label for="runs" style="margin-left:12px">End after</label>
+        <select id="runs" class="form-control">
+        <option value='None' selected>None</option>
+        <option value='1'>1 time</option>
+        <option value='2'>2 times</option>
+        <option value='3'>3 times</option>
+        <option value='4'>4 times</option>
+        <option value='5'>5 times</option>
+        <option value='10'>10 times</option>
+        <option value='50'>50 times</option>
+        <option value='100'>100 times</option>
+        </select>
+    </div>
+    <div>
+      <div class="form-group col-md-6">
+        <label for="emailfailure" style="margin-left:12px">Email on failure</label>
+        <input id="emailfailure" class="form-control" style="margin-left:12px">
+      </div>
+
+      <div class="form-group col-md-6">
+        <label for="emailsuccess" style="margin-left:12px">Email on success</label>
+        <input id="emailsuccess" class="form-control" style="margin-left:12px">
+      </div>
+    </div>
+  </div>
+ <div style="float:right">
+ <button id="confirmedit" type="submit" class="btn btn-primary" style="margin-top:12px">Confirm Edit</button>
+ </div>
+</form>
+<script type="text/javascript">
+
+   var init_start = "{{ configuration[1] }}".split(" ");
+   var init_interval = "{{ configuration[2] }}".split(" ");
+   var init_email_failure = "{{ configuration[3] }}";
+   var init_email_success = "{{ configuration[4] }}";
+   var init_start_on = init_start[0];
+   var init_start_at = init_start[1].substring(0, init_start[1].length - 3) ;
+   var init_freq = init_interval[0];
+   var init_unit = init_interval[1];
+   var freq = $('#freq');
+   var unit = $('#unit');
+   var start_at = $('#start_at');
+   var start_on = $('#start_on');
+   var runs = $('#runs');
+   var lst = [];
+   switch (init_unit){
+       case "hours":
+           lst = Array(20).fill(0).map((i,j) => j + 1);
+           break;
+       case "days":
+           lst = Array(30).fill(0).map((i,j) => j + 1);
+           break;
+       case "weeks":
+           lst = Array(52).fill(0).map((i,j) => j + 1);
+   }
+   $.each(lst, function(i, el){freq.append(new Option(el, el));});
+
+
+   $("#emailfailure").val(init_email_failure);
+   $("#emailsuccess").val(init_email_success);
+   freq.val(init_freq);
+   unit.val(init_unit);
+   start_on.val(init_start_on);
+   start_at.val(init_start_at);
+   unit.change(function() {
+   switch (unit.val()){
+       case "hours":
+           lst = Array(20).fill(0).map((i,j) => j + 1);
+           break;
+       case "days":
+           lst = Array(30).fill(0).map((i,j) => j + 1);
+           break;
+       case "weeks":
+           lst = Array(52).fill(0).map((i,j) => j + 1);
+       }
+       freq.empty();
+       $.each(lst, function(i, el){freq.append(new Option(el, el));});
+   });
+
+
+   $('#confirmedit').click(function(e){
+       e.preventDefault();
+       var start = start_on.val() + ' ' + start_at.val() + ":00";
+       var num_of_runs = "None";
+       if (runs.val() != null && runs.val() !== "None"){
+           num_of_runs = parseInt(runs.val());
+       }
+       var now = new Date();
+       var scheduled_time = new Date(start.replace(new RegExp('-','g'), '/'));
+       if (scheduled_time < now){
+           alert("Cannot schedule in the past!");
+           return false;
+       }
+       var _xsrf = $("input[name='_xsrf']").val();
+       var payload = {
+                "_xsrf": _xsrf,
+                "dag_id":'{{ configuration[0] }}',
+                "start": start,
+                "runs": num_of_runs,
+                "freq": freq.val(),
+                "unit": unit.val(),
+                "emails_failure": $("#emailfailure").val(),
+                "emails_success": $("#emailsuccess").val()
+       };
+       var settings = {
+               url: '{{ configuration[5] }}scheduler/edit_dag',
+               method: 'POST',
+               data: payload,
+               success: function(){
+                   alert("Edit Success!");
+               },
+               error:function(){
+                   alert("Edit Failed!");
+               }
+             };
+       $.ajax(settings);
+       setTimeout(function(){$('.scheduled_jobs').click().tab('show');}, 100);
+   });
+</script>
+

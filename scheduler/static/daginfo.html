@@ -1,0 +1,67 @@
+<div class="contain">
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th scope="col">Notebook Name</th>
+            <th scope="col">Last Run Time</th>
+            <th scope="col">Last Run Status</th>
+            <th scope="col">Last Run Duration</th>
+            <th scope="col">Next Scheduled Run</th>
+            <th scope="col">Action</th>
+        </tr>
+        </thead>
+        {% for dag in dag_list %}
+        <tr>
+            <td><a href='#' onclick="redirect();">{{ dag[0] }}</a></td>
+            <td>{{ dag[1] }}</td>
+            <td>{{ dag[2] }}</td>
+            <td>{{ dag[3] }}</td>
+            <td>{{ dag[4] }}</td>
+            <td>
+                <form id="{{ dag[0] }}del" action="{{ base_url }}scheduler/delete_dag?notebook_name={{ dag[0] }}" method="POST">
+                    <button  type="submit" class="btn btn-primary">Remove</button>
+                    {% raw xsrf_form_html() %}
+               </form>
+            </td>
+            <td>
+            <button id="{{ dag[0] }}edt" type="submit" class="btn btn-primary" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Edit</button>
+            </td>
+        </tr>
+        {% end %}
+        </tbody>
+    </table>
+</div>
+
+<div class="collapse" id="collapseExample">
+  <div class="card card-body">
+      <div id="popup_place_holder"></div>
+  </div>
+</div>
+
+<script>
+{% for dag in dag_list %}
+  $('#{{ dag[0] }}del').submit(function(e){
+    e.preventDefault();
+    var result = confirm("Are you sure you want to delete?");
+    if(result)
+        {this.submit();}
+    else
+        {return false;}
+    setTimeout(function(){
+        $('.scheduled_jobs').click().tab('show');
+        }, 100);
+  });
+{% end %}
+
+
+{% for dag in dag_list %}
+  $('#{{ dag[0] }}edt').click(function() {
+      $('#popup_place_holder').load('{{ base_url }}scheduler/edit_dag?notebook_name={{ dag[0] }}&base_url={{ base_url }}');
+  });
+{% end %}
+
+  function redirect(){
+    window.open("http://localhost:8080")
+  }
+</script>
+

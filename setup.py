@@ -4,6 +4,7 @@ from setuptools import setup, find_packages
 
 DESCRIPTION = "PPExtenions - Set of iPython and Jupyter extensions"
 NAME = "ppextensions"
+PACKAGES = ["ppextensions", "github", "scheduler"]
 AUTHOR = "PPExtensions Development Team"
 AUTHOR_EMAIL = "jupyter@googlegroups.org"
 URL = 'https://github.com/paypal/ppextensions'
@@ -13,7 +14,7 @@ LICENSE = 'BSD License'
 here = os.path.abspath(os.path.dirname(__file__))
 README = open(os.path.join(here, 'README.md'), encoding='utf-8').read()
 
-VERSION = '0.0.4'
+VERSION = '0.0.5'
 
 install_requires = [
     'ipython>=1.0',
@@ -31,7 +32,11 @@ install_requires = [
     'astor',
     'pandas==0.22.0',
     'autovizwidget',
-    'thrift-sasl==0.2.1'
+    'thrift-sasl==0.2.1',
+    'apache-airflow==1.8.2',
+    'nbdime',
+    'gitpython',
+    'mysql-connector-python-rf'
 ]
 
 setup(name=NAME,
@@ -61,3 +66,4 @@ setup(name=NAME,
               'pycodestyle'
           ]
       })
+

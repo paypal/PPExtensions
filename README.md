@@ -26,8 +26,8 @@ PPExtensions is a suite of ipython and jupyter extensions built to improve user 
 | Feature | Available | State |
 |---------------------- | ------------- | -------------|
 | PPMagics | Available | Beta |
-| Scheduling Notebooks | Coming soon | Coming soon |
-| Github Integration | Coming soon | Coming soon |
+| Scheduling Notebooks | Available | Beta |
+| Github Integration | Available | Beta |
 | Config UI | Coming soon | Coming soon |
 
 --------------------------------------------------------------------------------------------------------------------
@@ -41,3 +41,4 @@ PPExtensions is a suite of ipython and jupyter extensions built to improve user 
 * [Slack](https://ppextensions.slack.com)
 * [User Forum](https://groups.google.com/d/forum/ppextensions)
 * [Developer Forum](https://groups.google.com/d/forum/ppextensions)
+

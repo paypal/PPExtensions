@@ -3,12 +3,12 @@
 pip install ppextensions
 ```
 
-## Try ppextensions
+## Try ppextensions magics
 ```
 %load_ext ppextensions.ppmagics
 ```
 
-Try help to see all the available options
+Try help to see all the available magics and options
 ```
 %help
 ```
