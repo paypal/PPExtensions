@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.org/paypal/PPExtensions.svg?branch=master)](https://travis-ci.org/paypal/PPExtensions)
 [![Documentation Status](https://readthedocs.org/projects/ppextensions/badge/?version=latest)](http://ppextensions.readthedocs.io/en/latest/?badge=latest)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/a3452d2e00d2458bb79c6ba5f36b5b7a)](https://www.codacy.com/project/Dee-Pac/PPExtensions/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=paypal/PPExtensions&amp;utm_campaign=Badge_Grade_Dashboard)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/a159cd4835e34c8abb1d738ff996d065)](https://www.codacy.com/app/ppextensions-team/PPExtensions?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=paypal/PPExtensions&amp;utm_campaign=Badge_Grade)
 [![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
 
 # PPExtensions
@@ -39,4 +39,3 @@ PPExtensions is a suite of ipython and jupyter extensions built to improve user 
 * [Slack](https://ppextensions.slack.com)
 * [User Forum](https://groups.google.com/d/forum/ppextensions)
 * [Developer Forum](https://groups.google.com/d/forum/ppextensions)
-

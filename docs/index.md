@@ -29,6 +29,10 @@ PPExtensions is a suite of ipython and jupyter extensions built to improve user 
 
 * [Click here to read the docs](http://ppextensions.readthedocs.io/)
 
+# Contributing
+
+* [Edit in Github](https://github.com/paypal/PPExtensions/)
+
 # Questions
 
 * [Slack](https://join.slack.com/t/ppextensions/shared_invite/enQtNDIyODk5NzYzMzEyLTIwOGM3MWE0OGZlNjFkYTUxZTJiN2NjOWFlNmUxNDRiY2U3MzE0Nzg5NDRjZjE2M2VmZGI4NWJhOGVjYTRiMTk)
