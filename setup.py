@@ -33,7 +33,7 @@ install_requires = [
     'pandas==0.22.0',
     'autovizwidget',
     'thrift-sasl==0.2.1',
-    'apache-airflow==1.8.2',
+    'apache-airflow==1.10.6',
     'nbdime',
     'gitpython',
     'mysql-connector-python-rf'
